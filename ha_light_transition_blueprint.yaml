@@ -128,7 +128,7 @@ sequence:
               entity_id: !input light_entity
             data:
               brightness: "{{ i_brightness }}"
-              kelvin: !input initial_temp
+              color_temp_kelvin: !input initial_temp
 
   # Wait for light to turn on
   - wait_for_trigger:
@@ -171,6 +171,6 @@ sequence:
                     entity_id: !input light_entity
                   data:
                     brightness: "{{ (int(i_brightness) + (repeat.index * brightness_step)) | int }}"
-                    kelvin: "{{ (int(initial_temp) + (repeat.index * temp_step)) | int }}"
+                    color_temp_kelvin: "{{ (int(initial_temp) + (repeat.index * temp_step)) | int }}"
         - delay:
             seconds: !input step_time
